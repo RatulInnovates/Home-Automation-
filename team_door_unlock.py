@@ -19,10 +19,11 @@ def load_team_member(file_path, name):
 
 print("Booting up security database...")
 load_team_member("team_faces/ibtid.jpg", "Ibtid")
-# load_team_member("team_faces/sourav.jpg", "Sourav")
+load_team_member("team_faces/sourav.jpg", "Sourav")
 # load_team_member("team_faces/supty.jpg", "Supty")
 # load_team_member("team_faces/urbashi.jpg", "Urbashi")
 # load_team_member("team_faces/sadika.jpg", "Sadika")
+load_team_member("team_faces/ratul.jpg", "ratul")
 
 # 2. Configure PiCamera2
 picam2 = Picamera2()
