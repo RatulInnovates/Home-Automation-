@@ -1,10 +1,14 @@
+import os
+os.environ["GPIOZERO_PIN_FACTORY"] = "lgpio"
+
 import cv2
 import face_recognition
 import numpy as np
-import os
 import time
 from picamera2 import Picamera2
 from gpiozero import MotionSensor
+
+from door_state import record_activity
 
 # 1. Initialize the Syntax Terrorists database
 known_face_encodings = []
@@ -69,6 +73,7 @@ try:
                         name = known_face_names[best_match_index]
                         box_color = (0, 255, 0) # Green for team members
                         print(f"[{name} Detected] -> SUCCESS: Opening the door!")
+                        record_activity("entry", f"{name} entered through the smart door.", person=name)
                         known_detected = True
                         break # Break face loop on successful match
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Door Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Raspberry Pi project</p>
+          <h1>Smart Door Dashboard</h1>
+        </div>
+        <button id="refresh-btn" class="secondary-btn">Refresh now</button>
+      </header>
+
+      <section class="feature-grid">
+        <div class="card feature-card">
+          <h2>Project features</h2>
+          <ul id="feature-list" class="feature-list"></ul>
+        </div>
+
+        <div class="card status-card">
+          <h2>Live status</h2>
+          <div class="metrics">
+            <div class="metric">
+              <span>Motion</span>
+              <strong id="motion-status">Checking...</strong>
+            </div>
+            <div class="metric">
+              <span>Last person</span>
+              <strong id="last-person">Waiting...</strong>
+            </div>
+            <div class="metric">
+              <span>Temperature</span>
+              <strong id="temperature">--</strong>
+            </div>
+            <div class="metric">
+              <span>Humidity</span>
+              <strong id="humidity">--</strong>
+            </div>
+            <div class="metric">
+              <span>Last motion</span>
+              <strong id="last-motion">--</strong>
+            </div>
+            <div class="metric">
+              <span>Gas leakage</span>
+              <strong id="gas-status" class="badge">Normal</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls-grid">
+        <div class="card">
+          <h2>Controls</h2>
+          <div class="button-row">
+            <button id="fan-btn" class="control-btn fan">Fan: Off</button>
+            <button id="light-btn" class="control-btn light">Light: Off</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>System alerts</h2>
+          <div id="alert-box" class="alert-box safe">No gas leakage detected.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Recent activity</h2>
+        <ul id="activity-list" class="activity-list"></ul>
+      </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
